@@ -8,6 +8,8 @@ def canUnlockAll(boxes):
     """
     if type(boxes) is not list:
         return False
+    elif boxes == [] and boxes == [[]]:
+        return False
     length_boxes = len(boxes)
     check_list = list(map(lambda num: num + 1, range(length_boxes)))
     i = 0
