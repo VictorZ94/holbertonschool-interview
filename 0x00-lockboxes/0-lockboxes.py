@@ -6,10 +6,6 @@
 def canUnlockAll(boxes):
     """lockboxes: find whether a boxes can open or not.
     """
-    if type(boxes) is not list:
-        return False
-    elif boxes == [] and boxes == [[]]:
-        return False
     length_boxes = len(boxes)
     check_list = list(map(lambda num: num + 1, range(length_boxes)))
     i = 0
@@ -23,7 +19,7 @@ def canUnlockAll(boxes):
             check_list.remove(boxes[i][j])
         i += 1
 
-    if len(check_list) == 1:
+    if len(check_list) == 1 or len(check_list) == 0:
         return True
     else:
         return False
