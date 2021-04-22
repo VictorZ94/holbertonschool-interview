@@ -6,6 +6,8 @@
 def canUnlockAll(boxes):
     """lockboxes: find whether a boxes can open or not.
     """
+    if boxes is not list:
+        return False
     length_boxes = len(boxes)
     check_list = list(map(lambda num: num + 1, range(length_boxes)))
     i = 0
