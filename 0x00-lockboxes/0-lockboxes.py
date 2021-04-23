@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+# #!/usr/bin/python3
 """lockboxes: find whether a boxes can open or not.
 """
 
@@ -6,20 +6,15 @@
 def canUnlockAll(boxes):
     """lockboxes: find whether a boxes can open or not.
     """
-    length_boxes = len(boxes)
-    check_list = list(map(lambda num: num + 1, range(length_boxes)))
-    i = 0
-    while i < length_boxes:
-        j = 0
-        while j < len(boxes[i]):
-            if boxes[i][j] in check_list:
-                break
-            j += 1
-        if len(boxes[i]) > 0 and j != len(boxes[i]):
-            check_list.remove(boxes[i][j])
-        i += 1
+    length_box = len(boxes)
+    check_list = [0]
+    for check_value in check_list:
+        for value_into_boxes in boxes[check_value]:
+            if value_into_boxes not in check_list and\
+             value_into_boxes < length_box:
+                check_list.append(value_into_boxes)
 
-    if len(check_list) == 1 or len(check_list) == 0:
+    if len(check_list) == length_box:
         return True
     else:
         return False
