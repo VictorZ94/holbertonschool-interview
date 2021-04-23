@@ -1,11 +1,10 @@
-# #!/usr/bin/python3
+#!/usr/bin/python3
 """lockboxes: find whether a boxes can open or not.
 """
 
 
 def canUnlockAll(boxes):
-    """lockboxes: find whether a boxes can open or not.
-    """
+    """lockboxes: find whether a boxes can open or not."""
     length_box = len(boxes)
     check_list = [0]
     for check_value in check_list:
