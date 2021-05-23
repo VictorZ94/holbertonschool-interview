@@ -58,11 +58,11 @@ void toppled(int grid1[3][3])
 	int x, y, num = 0, check;
 	int sandpile_temp[3][3];
 
-	for (x = 0; x < 3; x++)
-		for (y = 0; y < 3; y++)
-			sandpile_temp[x][y] = grid1[x][y];
 	while (check != 9)
 	{
+		for (x = 0; x < 3; x++)
+			for (y = 0; y < 3; y++)
+				sandpile_temp[x][y] = grid1[x][y];
 		check = 0;
 		for (x = 0; x < 3; x++)
 		{
