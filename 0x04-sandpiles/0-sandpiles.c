@@ -33,12 +33,14 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 	int x, y, check = 0;
 
 	for (x = 0; x < 3; x++)
+	{
 		for (y = 0; y < 3; y++)
 		{
 			grid1[x][y] = grid1[x][y] + grid2[x][y];
 			if (grid1[x][y] <= 3)
 				check++;
 		}
+	}
 
 	if (check < 9)
 	{
@@ -49,21 +51,40 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 }
 
 /**
+ * is_stable - Print 3x3 grid
+ * @grid: 3x3 grid
+ * Return: 0
+ */
+int is_stable(int grid[3][3])
+{
+	int i = 0, j = 0, check = 0;
+
+	for (i = 0; i < 3; i++)
+	{
+		for (j = 0; j < 3; j++)
+		{
+			if (grid[i][j] > 3)
+				check = 1;
+		}
+	}
+	return (check);
+}
+
+/**
  * toppled - toppled 3x3 grid added
  * @grid1: only 3x3 grid
  *
  */
 void toppled(int grid1[3][3])
 {
-	int x, y, num = 0, check;
+	int x, y, num = 0;
 	int sandpile_temp[3][3];
 
-	while (check != 9)
+	while (is_stable(grid1))
 	{
 		for (x = 0; x < 3; x++)
 			for (y = 0; y < 3; y++)
 				sandpile_temp[x][y] = grid1[x][y];
-		check = 0;
 		for (x = 0; x < 3; x++)
 		{
 			for (y = 0; y < 3; y++)
@@ -84,15 +105,9 @@ void toppled(int grid1[3][3])
 			}
 		}
 		for (x = 0; x < 3; x++)
-		{
 			for (y = 0; y < 3; y++)
-			{
 				grid1[x][y] = sandpile_temp[x][y];
-				if (grid1[x][y] <= 3)
-					check++;
-			}
-		}
-		if (check < 9)
+		if (is_stable(grid1))
 			print_mygrid(grid1);
 	}
 }
