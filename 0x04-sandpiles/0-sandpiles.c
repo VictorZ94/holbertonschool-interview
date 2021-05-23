@@ -74,12 +74,12 @@ void toppled(int grid1[3][3])
 					sandpile_temp[x][y] -= 4;
 					if (x - 1 >= 0)
 						sandpile_temp[x - 1][y]++;
+					if (y + 1 < 3)
+						sandpile_temp[x][y + 1]++;
 					if (x + 1 < 3)
 						sandpile_temp[x + 1][y]++;
 					if (y - 1 >= 0)
 						sandpile_temp[x][y - 1]++;
-					if (y + 1 < 3)
-						sandpile_temp[x][y + 1]++;
 				}
 			}
 		}
