@@ -41,9 +41,11 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 		}
 
 	if (check < 9)
+	{
 		print_mygrid(grid1);
+		toppled(grid1);
+	}
 
-	toppled(grid1);
 }
 
 /**
