@@ -22,8 +22,9 @@ listint_t *add_nodeint_end(listint_t **head, const int n);
 void free_listint(listint_t *head);
 
 int is_palindrome(listint_t **head);
-int check_array_palindrome(int *array1, int *array2, int len_array);
+size_t check_array_palindrome(int *array1, int *array2, int len_array);
 void reverse_array(int *a, int n);
+size_t list_len(const listint_t *h);
 
 #endif /* LISTS_H */
 
