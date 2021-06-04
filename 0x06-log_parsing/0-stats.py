@@ -8,14 +8,6 @@ status_code = {200: 0, 301: 0,
                403: 0, 404: 0,
                405: 0, 500: 0}
 
-# def print_metrics(list_metrics, file_size):
-#     """print metrics size file and amount of status code"""
-#     count_scode = Counter(list_metrics)
-#     print(f"File size: {file_size}")
-#     sorted_items = OrderedDict(sorted(count_scode.items()))
-#     for key, value in sorted_items.items():
-#         print(f"{key}: {value}")
-
 
 def print_metrics(list_metrics, file_size):
     """print metrics size file and amount of status code"""
@@ -36,7 +28,6 @@ if __name__ == "__main__":
         fsize = 0
         scode = []
         for line in stdin:
-            print(line, end="")
             scode.append(int(line.split(" ")[7]))
             fsize += int(line.split(" ")[8])
             if check == 10:
