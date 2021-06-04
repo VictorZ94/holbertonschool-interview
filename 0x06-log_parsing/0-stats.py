@@ -1,16 +1,16 @@
 #!/usr/bin/python3
 """Script that reads stdin line by line and computes metrics."""
-from sys import stdin
 from collections import Counter, OrderedDict
+from sys import stdin
 
 
-def print_metrics(list_metrics, file_size):
-    """print metrics size file and amount of status code"""
-    count_scode = Counter(list_metrics)
-    print(f"File size: {file_size}")
-    sorted_items = OrderedDict(sorted(count_scode.items()))
-    for key, value in sorted_items.items():
-        print(f"{key}: {value}")
+# def print_metrics(list_metrics, file_size):
+#     """print metrics size file and amount of status code"""
+#     count_scode = Counter(list_metrics)
+#     print(f"File size: {file_size}")
+#     sorted_items = OrderedDict(sorted(count_scode.items()))
+#     for key, value in sorted_items.items():
+#         print(f"{key}: {value}")
 
 
 if __name__ == "__main__":
