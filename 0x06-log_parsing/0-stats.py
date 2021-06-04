@@ -3,10 +3,10 @@
 from sys import stdin
 
 
-status_code = {200: 0, 301: 0,
-               400: 0, 401: 0,
-               403: 0, 404: 0,
-               405: 0, 500: 0}
+status_code = {'200': 0, '301': 0,
+               '400': 0, '401': 0,
+               '403': 0, '404': 0,
+               '405': 0, '500': 0}
 
 
 def print_metrics(list_metrics, file_size):
@@ -28,7 +28,7 @@ if __name__ == "__main__":
         fsize = 0
         scode = []
         for line in stdin:
-            scode.append(int(line.split(" ")[7]))
+            scode.append(line.split(" ")[7])
             fsize += int(line.split(" ")[8])
             if check == 10:
                 print_metrics(scode, fsize)
