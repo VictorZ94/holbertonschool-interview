@@ -36,12 +36,9 @@ if __name__ == "__main__":
         fsize = 0
         scode = []
         for line in stdin:
-            try:
-                print(line, end="")
-                scode.append(int(line.split(" ")[7]))
-                fsize += int(line.split(" ")[8])
-            except:
-                pass
+            print(line, end="")
+            scode.append(int(line.split(" ")[7]))
+            fsize += int(line.split(" ")[8])
             if check == 10:
                 print_metrics(scode, fsize)
                 scode = []
