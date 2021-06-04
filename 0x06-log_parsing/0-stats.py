@@ -20,8 +20,11 @@ if __name__ == "__main__":
         fsize = 0
         scode = []
         for line in stdin:
-            scode.append(int(line.split(" ")[7]))
-            fsize += int(line.split(" ")[8])
+            try:
+                scode.append(int(line.split(" ")[7]))
+                fsize += int(line.split(" ")[8])
+            except:
+                pass
             if check == 10:
                 print_metrics(scode, fsize)
                 check = 0
