@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """Script that reads stdin line by line and computes metrics."""
-from sys import stdin
+import sys
 
 
 status_code = {'200': 0, '301': 0,
