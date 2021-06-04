@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""pasing metrics of a file or server"""
+""" Script that reads stdin line by line and computes metrics."""
 from sys import stdin
 from collections import Counter, OrderedDict
 
