@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+""" pasing metrics of a file or server
+"""
 
 
 from sys import stdin
