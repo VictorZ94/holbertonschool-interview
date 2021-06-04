@@ -9,16 +9,16 @@ status_code = {'200': 0, '301': 0,
                '405': 0, '500': 0}
 
 
-def print_metrics(list_metrics, file_size):
-    """print metrics size file and amount of status code"""
-    print(f"File size: {file_size}")
-    for code in list_metrics:
-        if code in status_code.keys():
-            status_code[code] += 1
+# def print_metrics(list_metrics, file_size):
+#     """print metrics size file and amount of status code"""
+#     print(f"File size: {file_size}")
+#     for code in list_metrics:
+#         if code in status_code.keys():
+#             status_code[code] += 1
 
-    for key, value in status_code.items():
-        if value > 0:
-            print(f"{key}: {value}")
+#     for key, value in status_code.items():
+#         if value > 0:
+#             print(f"{key}: {value}")
 
 
 if __name__ == "__main__":
@@ -27,14 +27,28 @@ if __name__ == "__main__":
         check = 0
         fsize = 0
         scode = []
-        for line in stdin:
+        for line in sys.stdin:
             scode.append(line.split(" ")[7])
             fsize += int(line.split(" ")[8])
             check += 1
             if check % 10 == 0:
-                print_metrics(scode, fsize)
+                print(f"File size: {fsize}")
+                for code in scode:
+                    if code in status_code.keys():
+                        status_code[code] += 1
+
+                for key, value in status_code.items():
+                    if value > 0:
+                        print(f"{key}: {value}")
+
                 scode = []
+
     except KeyboardInterrupt:
-        print_metrics(scode, fsize)
-        raise
-    print_metrics(scode, fsize)
+        print(f"File size: {fsize}")
+        for code in scode:
+            if code in status_code.keys():
+                status_code[code] += 1
+
+        for key, value in status_code.items():
+            if value > 0:
+                print(f"{key}: {value}")
