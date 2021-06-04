@@ -10,21 +10,16 @@ int is_palindrome(listint_t **head)
 {
 	int *array1, *reversed_array;
 	listint_t *temp;
-	int iter, flag;
+	int iter;
+	size_t flag;
 
-	iter = 0;
 	temp = *head;
-	while (temp)
-	{
-		temp = temp->next;
-		iter++;
-	}
-	array1 = malloc(sizeof(int) * iter);
-	reversed_array = malloc(sizeof(int) * iter);
+	array1 = malloc(sizeof(int) * list_len(temp));
+	reversed_array = malloc(sizeof(int) * list_len(temp));
 	if (!array1 || !reversed_array)
 		return (0);
-	temp = *head;
 	iter = 0;
+	temp = *head;
 	while (temp)
 	{
 		array1[iter] = temp->n;
@@ -37,6 +32,24 @@ int is_palindrome(listint_t **head)
 	free(array1);
 	free(reversed_array);
 	return (flag);
+}
+
+
+/**
+ * list_len - print amount of nodes
+ * @h: structure liked list
+ *
+ * Description: singly linked list node structure
+ * for Holberton project
+ *
+ * Return: amount nodes
+ */
+size_t list_len(const listint_t *h)
+{
+	if (h == NULL)
+		return (0);
+
+	return (1 + list_len(h->next));
 }
 
 /**
@@ -70,7 +83,7 @@ void reverse_array(int *a, int n)
  *
  * Return: 1 on success, otherwise 0
  */
-int check_array_palindrome(int *array1, int *array2, int len_array)
+size_t check_array_palindrome(int *array1, int *array2, int len_array)
 {
 	int i;
 
