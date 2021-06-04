@@ -24,17 +24,16 @@ def print_metrics(list_metrics, file_size):
 if __name__ == "__main__":
     """pasing metrics of a file or server."""
     try:
-        check = 1
+        check = 0
         fsize = 0
         scode = []
         for line in stdin:
             scode.append(line.split(" ")[7])
             fsize += int(line.split(" ")[8])
-            if check == 10:
+            check += 1
+            if check % 10 == 0:
                 print_metrics(scode, fsize)
                 scode = []
-                check = 0
-            check += 1
     except KeyboardInterrupt:
         print_metrics(scode, fsize)
         raise
