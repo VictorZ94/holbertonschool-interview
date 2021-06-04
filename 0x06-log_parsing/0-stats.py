@@ -1,54 +1,44 @@
 #!/usr/bin/python3
-"""Script that reads stdin line by line and computes metrics."""
+""" Script that reads stdin line by line and computes metrics."""
+
 import sys
 
 
-status_code = {'200': 0, '301': 0,
-               '400': 0, '401': 0,
-               '403': 0, '404': 0,
-               '405': 0, '500': 0}
+dlist = {"size": 0,
+         "lines": 1}
+
+scode = {"200": 0, "301": 0,
+         "400": 0, "401": 0,
+         "403": 0, "404": 0,
+         "405": 0, "500": 0}
 
 
-# def print_metrics(list_metrics, file_size):
-#     """print metrics size file and amount of status code"""
-#     print(f"File size: {file_size}")
-#     for code in list_metrics:
-#         if code in status_code.keys():
-#             status_code[code] += 1
+def printf():
+    """ Print codes and numbers"""
+    print("File size: {}".format(dlist["size"]))
+    for key in sorted(scode.keys()):
+        if scode[key] != 0:
+            print("{}: {}".format(key, scode[key]))
 
-#     for key, value in status_code.items():
-#         if value > 0:
-#             print(f"{key}: {value}")
+
+def datasize(data):
+    """ Count file codes and size"""
+    dlist["size"] += int(data[-1])
+    if data[-2] in scode:
+        scode[data[-2]] += 1
 
 
 if __name__ == "__main__":
-    """pasing metrics of a file or server."""
     try:
-        check = 0
-        fsize = 0
-        scode = []
         for line in sys.stdin:
-            scode.append(line.split(" ")[7])
-            fsize += int(line.split(" ")[8])
-            check += 1
-            if check % 10 == 0:
-                print(f"File size: {fsize}")
-                for code in scode:
-                    if code in status_code.keys():
-                        status_code[code] += 1
-
-                for key, value in status_code.items():
-                    if value > 0:
-                        print(f"{key}: {value}")
-
-                scode = []
-
+            try:
+                datasize(line.split(" "))
+            except:
+                pass
+            if dlist["lines"] % 10 == 0:
+                printf()
+            dlist["lines"] += 1
     except KeyboardInterrupt:
-        print(f"File size: {fsize}")
-        for code in scode:
-            if code in status_code.keys():
-                status_code[code] += 1
-
-        for key, value in status_code.items():
-            if value > 0:
-                print(f"{key}: {value}")
+        printf()
+        raise
+    printf()
