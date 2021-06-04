@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Script that reads stdin line by line and computes metrics."""
+"""Script that reads stdin line by line and computes metrics."""
 from sys import stdin
 from collections import Counter, OrderedDict
 
@@ -13,10 +13,7 @@ def print_metrics(list_metrics, file_size):
         print(f"{key}: {value}")
 
 
-"""pasing metrics of a file or server."""
-
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     """pasing metrics of a file or server."""
     try:
         check = 1
