@@ -1,15 +1,12 @@
 #!/usr/bin/python3
-""" pasing metrics of a file or server
-"""
+""" pasing metrics of a file or server"""
 from sys import stdin
 from collections import Counter, OrderedDict
 
 
 def print_metrics(list_metrics, file_size):
-    """ print metrics size file and amount of status code
-    """
+    """ print metrics size file and amount of status code"""
     count_scode = Counter(list_metrics)
-
     print(f"File size: {file_size}")
     sorted_items = OrderedDict(sorted(count_scode.items()))
     for key, value in sorted_items.items():
@@ -17,8 +14,7 @@ def print_metrics(list_metrics, file_size):
 
 
 if __name__ == '__main__':
-    """ pasing metrics of a file or server
-    """
+    """ pasing metrics of a file or server"""
     try:
         check = 1
         fsize = 0
