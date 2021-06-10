@@ -9,12 +9,12 @@ int check_cycle(listint_t *list)
 {
 	listint_t *hare, *tortoise;
 
-	if (!list)
+	if (list == NULL)
 		return (0);
 
 	hare = list;
 	tortoise = list;
-	while (hare->next->next && tortoise->next)
+	while (hare->next && hare->next->next)
 	{
 		hare = hare->next->next;
 		tortoise = tortoise->next;
