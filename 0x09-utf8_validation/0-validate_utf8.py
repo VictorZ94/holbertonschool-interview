@@ -2,6 +2,8 @@
 """
 Test UTF-8
 """
+
+
 def validUTF8(data):
     """
     Test UTF-8
