@@ -35,8 +35,10 @@ avl_t *array_to_avl(int *array, int start, int size, avl_t *root)
 
 	mid = (start + size) / 2;
 	new_node = NewNode(root, array[mid]);
-	new_node->left = array_to_avl(array, start, mid - 1, new_node);
-	new_node->right = array_to_avl(array, mid + 1, size, new_node);
+	if (mid != start)
+		new_node->left = array_to_avl(array, start, mid - 1, new_node);
+	if (mid != size)
+		new_node->right = array_to_avl(array, mid + 1, size, new_node);
 
 	return (new_node);
 }
