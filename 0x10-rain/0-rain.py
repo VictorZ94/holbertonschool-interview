@@ -13,6 +13,9 @@ def rain(walls) -> int:
     Returns:
         [int]: represent the sum of all water retained
     """
+    if not isinstance(walls, list):
+        return 0
+
     if walls == [None] or walls == []:
         return 0
 
