@@ -13,7 +13,7 @@ def rain(walls) -> int:
     Returns:
         [int]: represent the sum of all water retained
     """
-    if walls is None or walls == []:
+    if walls == [None] or walls == []:
         return 0
 
     set_walls = set(walls)
