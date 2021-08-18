@@ -3,7 +3,7 @@
 """
 
 
-def rain(walls):
+def rain(walls) -> int:
     """ rain calculates
 
     Args:
@@ -16,14 +16,21 @@ def rain(walls):
     if walls is None or walls == []:
         return 0
 
-    list1=[]
-    list2=[]
+    if 1 not in walls:
+        return 0
+
+    set_walls = set(walls)
+    if set_walls == {0, 1} or set_walls == {1}:
+        return 0
+
+    list1 = []
+    list2 = []
     for i, v in enumerate(walls, 1):
         if v != 0:
             list1.append(i)
             list2.append(v)
 
-    add=0
+    add = 0
     for j in range(len(list1)):
         i1 = list1[j]
         if j < len(list1) - 1:
