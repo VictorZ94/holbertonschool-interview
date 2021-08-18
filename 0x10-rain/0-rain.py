@@ -16,6 +16,10 @@ def rain(walls) -> int:
     if walls is None or walls == []:
         return 0
 
+    set_walls = set(walls)
+    if set_walls == {0, 1} or set_walls == {1}:
+        return 0
+
     list1 = []
     list2 = []
     for i, v in enumerate(walls, 1):
