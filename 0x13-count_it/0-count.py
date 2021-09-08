@@ -6,7 +6,8 @@ import sys
 
 
 def count_words(subreddit, word_list, kw_cont={}, next_pg=None, reap_kw={}):
-    """ parses the title of all hot articles, and prints a sorted count of given keywords
+    """ parses the title of all hot articles,
+    and prints a sorted count of given keywords
 
     Args:
         subreddit ([type]): [description]
