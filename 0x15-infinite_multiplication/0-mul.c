@@ -51,7 +51,7 @@ int main(int argc, char *argv[])
  */
 int *multiply(char *num1, char *num2)
 {
-	int *result;
+	int *result = NULL;
 	int i, j;
 	int len1 = _strlen(num1);
 	int len2 = _strlen(num2);
@@ -83,6 +83,7 @@ int *multiply(char *num1, char *num2)
 
 	if (i == -1)
 	{
+		free(result);
 		return (0);
 	}
 	reverse_array(result, len1 + len2);
