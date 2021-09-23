@@ -30,11 +30,12 @@ int main(int argc, char *argv[])
 		_putchar('0');
 	else
 	{
-		for (i = 0; i < _strlen(string1) + _strlen(string2); i++)
-			if (big_number[0] == 0 && i == 0)
-				continue;
-			else
-				_putchar('0' + big_number[i]);
+			i = 0;
+			while (i <= _strlen(string1) + _strlen(string2) && big_number[i] == 0)
+				i++;
+
+			for (int j = i; j < _strlen(string1) + _strlen(string2); j++)
+				_putchar('0' + big_number[j]);
 	}
 	_putchar('\n');
 	free(big_number);
