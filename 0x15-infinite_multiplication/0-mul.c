@@ -9,7 +9,7 @@
  */
 int main(int argc, char *argv[])
 {
-	int i;
+	int i, j;
 	char *string1 = argv[1];
 	char *string2 = argv[2];
 	int *big_number;
@@ -30,12 +30,12 @@ int main(int argc, char *argv[])
 		_putchar('0');
 	else
 	{
-			i = 0;
-			while (i <= _strlen(string1) + _strlen(string2) && big_number[i] == 0)
-				i++;
+		i = 0;
+		while (i <= _strlen(string1) + _strlen(string2) && big_number[i] == 0)
+			i++;
 
-			for (int j = i; j < _strlen(string1) + _strlen(string2); j++)
-				_putchar('0' + big_number[j]);
+		for (j = i; j < _strlen(string1) + _strlen(string2); j++)
+			_putchar('0' + big_number[j]);
 	}
 	_putchar('\n');
 	free(big_number);
